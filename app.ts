@@ -1,25 +1,8 @@
-import { serve } from 'http/server.ts';
+import { serve } from 'https://deno.land/std/http/server.ts';
+import { Template } from './Template.ts';
 
 const s = serve({ port: 8000 });
 console.log('http://localhost:8000');
-
-const Template = (children?: any) => {
-  return `
-    <html>
-      <head>
-        <title>Deno tutorial</title>
-        <style>
-          html {margin: 0;padding: 0;}
-          body {margin: 0;padding: 0;color: #333;}
-          .__deno_box {padding: 10px;}
-        </style>
-      </head>
-      <body>
-        ${children}
-      </body>
-    </html>
-  `
-}
 
 const home = (req: any) => {
   return req.respond({
