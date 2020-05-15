@@ -1,0 +1,1 @@
+deno run --importmap=import_map.json --unstable --allow-net welcome.ts
