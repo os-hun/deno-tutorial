@@ -11,7 +11,7 @@
     "generateCpuProfile": "profile.cpuprofile",
     "jsx": "react",
     "jsxFactory": "React.createElement",
-    "lib": [],
+    "lib": ["DOM"],
     "noFallthroughCasesInSwitch": false,
     "noImplicitAny": true,
     "noImplicitReturns": true,
