@@ -1,26 +1,19 @@
 import { serve } from 'https://deno.land/std/http/server.ts';
-// pages
-import { Home } from './pages/home.ts';
-import { About } from './pages/about.ts';
+// routes
+import { routes, RoutesType } from './config/routes.ts';
+// NotFound
+import { NotFound } from './pages/NotFound.ts';
 
 const s = serve({ port: 8000 });
-console.log('http://localhost:8000');
-
-const not_found = (req: any) => {
-  return req.respond({
-    status: 404,
-    body: 'not found.'
-  });
-}
+console.log('Server is up on port 8000!!');
 
 for await (const req of s) {
-  if (req.url === '/') {
-    Home(req);
-  } 
-  if (req.url === '/about') {
-    About(req);
-  }
-  if (req.url !== '/' && req.url !== '/about') {
-    not_found(req);
+  routes.map(({ path, action }: RoutesType) => {
+    if (req.url === path) {
+      return action(req);
+    }
+  });
+  if (!(routes.find(root => root.path === req.url))) {
+    NotFound(req);
   }
 }

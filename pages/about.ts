@@ -7,6 +7,6 @@ export const About = (req: any) => req.respond({
       <h1>About</h1>
       <p>URL: ${req.url}</p>
       <p>method: ${req.method}</p>
-    </div>;
+    </div>
   `),
 });

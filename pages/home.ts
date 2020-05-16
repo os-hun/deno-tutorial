@@ -8,6 +8,6 @@ export const Home = (req: any) => req.respond({
       <h2>Welcome to Deno!!</h2>
       <p>URL: ${req.url}</p>
       <p>method: ${req.method}</p>
-    </div>;
+    </div>
   `), 
 });
