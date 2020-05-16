@@ -1,4 +1,4 @@
-import { Template } from '../Template.ts';
+import { Template } from '../config/Template.ts';
 
 export const About = (req: any) => req.respond({
   status: 200,
